@@ -42,9 +42,13 @@ for i in range(len(px)):
 		partE = CalcE(partpx, partpy, partpz, partmass)
 		lv = ROOT.TLorentzVector()
 		lv.SetPxPyPzE(partpx, partpy, partpz, partE)
-		partpT = eleclv.Pt()
-		partphi = eleclv.Phi()
-		parteta = eleclv.Eta()
+		partpT = lv.Pt()
+		partphi = lv.Phi()
+		parteta = lv.Eta()
 		skimgenfile.write(str(i) + ',' + str(partpdg) + ',' + str(partpx) + ',' + str(partpy) + ',' + str(partpz) + ',' + str(partmass) + ',' + str(
 			partE) + ',' + str(partpT) + ',' + str(partphi) + ',' + str(parteta) + '\n')
+		print(i)
+		print(v)
+
 skimgenfile.close()
+print('done')
