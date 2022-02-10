@@ -27,10 +27,10 @@ mass = skimgen['skimmedGenParticles.core.p4.mass'].array()
 charge = skimgen['skimmedGenParticles.core.charge'].array()
 pdgid = skimgen['skimmedGenParticles.core.pdgId'].array()
 
-skimgenfile = open(targetpath+'skimgen'+filename+'.txt','w')
+skimgenfile = open(targetpath+'/skimgen'+filename+'.txt','w')
 skimgenfile.write('EventIndex,pdgId,px,py,pz,mass,charge,E,pT,phi,eta\n')
 skimgenfile.close()
-skimgenfile = open(targetpath+'skimgen'+filename+'.txt','a')
+skimgenfile = open(targetpath+'/skimgen'+filename+'.txt','a')
 
 for i in range(len(px)):
 	for v in range(len(px[i])):
