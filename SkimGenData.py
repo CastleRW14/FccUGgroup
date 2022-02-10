@@ -27,3 +27,24 @@ mass = skimgen['skimmedGenParticles.core.p4.mass'].array()
 charge = skimgen['skimmedGenParticles.core.charge'].array()
 pdgid = skimgen['skimmedGenParticles.core.pdgId'].array()
 
+skimgenfile = open(targetpath+'skimgen'+filename+'.txt','w')
+skimgenfile.write('EventIndex,pdgId,px,py,pz,mass,charge,E,pT,phi,eta\n')
+skimgenfile.close()
+skimgenfile = open(targetpath+'skimgen'+filename+'.txt','a')
+
+for i in range(len(px)):
+	for v in range(len(px[i])):
+		partpdg = pdgid[i][v]
+		partpx = px[i][v]
+		partpy = py[i][v]
+		partpz = pz[i][v]
+		partmass = mass[i][v]
+		partE = CalcE(partpx, partpy, partpz, partmass)
+		lv = ROOT.TLorentzVector()
+		lv.SetPxPyPzE(partpx, partpy, partpz, partE)
+		partpT = eleclv.Pt()
+		partphi = eleclv.Phi()
+		parteta = eleclv.Eta()
+		skimgenfile.write(str(i) + ',' + str(partpdg) + ',' + str(partpx) + ',' + str(partpy) + ',' + str(partpz) + ',' + str(partmass) + ',' + str(
+			partE) + ',' + str(partpT) + ',' + str(partphi) + ',' + str(parteta) + '\n')
+skimgenfile.close()
