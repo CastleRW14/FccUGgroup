@@ -47,6 +47,9 @@ skimgenfile.close()
 skimgenfile = open(targetpath + '/skimgen_e-mu' + filename + '.txt', 'w')
 skimgenfile.write('EventIndex,pdgId,px,py,pz,mass,charge,E,pT,phi,eta\n')
 skimgenfile.close()
+skimgenfile = open(targetpath + '/skimgen_misc' + filename + '.txt', 'w')
+skimgenfile.write('EventIndex,pdgId,px,py,pz,mass,charge,E,pT,phi,eta\n')
+skimgenfile.close()
 for i in range(len(px)):
 	survindex = []
 	survpdg = []
@@ -79,6 +82,7 @@ for i in range(len(px)):
 		if i[0] != i[1]:
 			pairs.append(i)
 	for v in pairs:
+		print(v)
 		p1 = survindex[v[0]]
 		p2 = survindex[v[1]]
 		pdg1 = pdgid[i][p1]
@@ -91,6 +95,8 @@ for i in range(len(px)):
 			skimgenfile = open(targetpath + '/skimgen_e+mu' + filename + '.txt', 'a')
 		elif (pdg1 == -13 and pdg2 == 13) or (pdg1 == 13 and pdg2 == -13):
 			skimgenfile = open(targetpath + '/skimgen_mumu' + filename + '.txt', 'a')
+		else:
+			skimgenfile = open(targetpath + '/skimgen_misc' + filename + '.txt', 'a')
 		partpdg = pdgid[i][p1]
 		partpx = px[i][p1]
 		partpy = py[i][p1]
