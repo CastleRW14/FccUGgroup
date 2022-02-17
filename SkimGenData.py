@@ -83,6 +83,9 @@ for i in range(len(px)):
 			pairs.append(i)
 	for v in pairs:
 		print(v)
+		print(v[0])
+		print(survindex)
+		print(survindex[v[0]])
 		p1 = survindex[v[0]]
 		p2 = survindex[v[1]]
 		pdg1 = pdgid[i][p1]
