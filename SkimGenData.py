@@ -86,6 +86,7 @@ for i in range(len(px)):
 		print(v[0])
 		print(survindex)
 		print(survindex[v[0]])
+		print(pdgid.shape)
 		p1 = survindex[v[0]]
 		p2 = survindex[v[1]]
 		pdg1 = pdgid[i][p1]
