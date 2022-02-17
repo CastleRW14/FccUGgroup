@@ -96,7 +96,7 @@ for i in range(len(px)):
 		partphi = lv.Phi()
 		parteta = lv.Eta()
 
-		if (pdg1 == 11 and pdg2 == -11) or (pdg2 == -11 and pdg2 == 11):
+		if (pdg1 == 11 and pdg2 == -11) or (pdg1 == -11 and pdg2 == 11):
 			skimgenfile = open(targetpath + '/skimgen_ee' + filename + '.txt', 'a')
 		elif (pdg1 == 11 and pdg2 == -13) or (pdg1 == -13 and pdg2 == 11):
 			skimgenfile = open(targetpath + '/skimgen_e-mu' + filename + '.txt', 'a')
