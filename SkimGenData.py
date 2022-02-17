@@ -82,11 +82,6 @@ for i in range(len(px)):
 		if i[0] != i[1]:
 			pairs.append(i)
 	for v in pairs:
-		print(v)
-		print(v[0])
-		print(survindex)
-		print(survindex[v[0]])
-		print(pdgid[i].shape)
 		p1 = survindex[v[0]]
 		p2 = survindex[v[1]]
 		if len(px[i]) > 1:
