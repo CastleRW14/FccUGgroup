@@ -89,8 +89,36 @@ for i in range(len(px)):
 		print(pdgid[i].shape)
 		p1 = survindex[v[0]]
 		p2 = survindex[v[1]]
-		pdg1 = pdgid[i][p1]
-		pdg2 = pdgid[i][p2]
+		if len(px[i]) > 1:
+			pdg1 = pdgid[i][p1]
+			pdg2 = pdgid[i][p2]
+			partpdg = pdgid[i][p1]
+			partpx = px[i][p1]
+			partpy = py[i][p1]
+			partpz = pz[i][p1]
+			partmass = mass[i][p1]
+			partE = CalcE(partpx, partpy, partpz, partmass)
+			partCharge = charge[i][p1]
+			lv = ROOT.TLorentzVector()
+			lv.SetPxPyPzE(partpx, partpy, partpz, partE)
+			partpT = lv.Pt()
+			partphi = lv.Phi()
+			parteta = lv.Eta()
+		else:
+			pdg1 = pdgid[i]
+			pdg2 = pdgid[i]
+			partpdg = pdgid[i]
+			partpx = px[i]
+			partpy = py[i]
+			partpz = pz[i]
+			partmass = mass[i]
+			partE = CalcE(partpx, partpy, partpz, partmass)
+			partCharge = charge[i]
+			lv = ROOT.TLorentzVector()
+			lv.SetPxPyPzE(partpx, partpy, partpz, partE)
+			partpT = lv.Pt()
+			partphi = lv.Phi()
+			parteta = lv.Eta()
 		if (pdg1 == 11 and pdg2 == -11) or (pdg2 == -11 and pdg2 == 11):
 			skimgenfile = open(targetpath + '/skimgen_ee' + filename + '.txt', 'a')
 		elif (pdg1 == 11 and pdg2 == -13) or (pdg1 == -13 and pdg2 == 11):
@@ -101,18 +129,7 @@ for i in range(len(px)):
 			skimgenfile = open(targetpath + '/skimgen_mumu' + filename + '.txt', 'a')
 		else:
 			skimgenfile = open(targetpath + '/skimgen_misc' + filename + '.txt', 'a')
-		partpdg = pdgid[i][p1]
-		partpx = px[i][p1]
-		partpy = py[i][p1]
-		partpz = pz[i][p1]
-		partmass = mass[i][p1]
-		partE = CalcE(partpx, partpy, partpz, partmass)
-		partCharge = charge[i][p1]
-		lv = ROOT.TLorentzVector()
-		lv.SetPxPyPzE(partpx, partpy, partpz, partE)
-		partpT = lv.Pt()
-		partphi = lv.Phi()
-		parteta = lv.Eta()
+
 		skimgenfile.write(
 			str(i) + ',' + str(partpdg) + ',' + str(partpx) + ',' + str(partpy) + ',' + str(partpz) + ',' + str(
 				partmass) + ',' + str(partCharge) + ',' + str(
