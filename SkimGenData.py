@@ -76,44 +76,26 @@ for i in range(len(px)):
 			partE) + ',' + str(partpT) + ',' + str(partphi) + ',' + str(parteta) + '\n')
 		print(i)
 		print(v)'''
-	temppairs = ViablePairs(survcharge, survcharge)
-	pairs = []
-	for i in temppairs:
-		if i[0] != i[1]:
-			pairs.append(i)
+	pairs = ViablePairs(survcharge, survcharge)
 	for v in pairs:
 		p1 = survindex[v[0]]
 		p2 = survindex[v[1]]
-		if type(px[i]) == type(pairs):
-			pdg1 = pdgid[i][p1]
-			pdg2 = pdgid[i][p2]
-			partpdg = pdgid[i][p1]
-			partpx = px[i][p1]
-			partpy = py[i][p1]
-			partpz = pz[i][p1]
-			partmass = mass[i][p1]
-			partE = CalcE(partpx, partpy, partpz, partmass)
-			partCharge = charge[i][p1]
-			lv = ROOT.TLorentzVector()
-			lv.SetPxPyPzE(partpx, partpy, partpz, partE)
-			partpT = lv.Pt()
-			partphi = lv.Phi()
-			parteta = lv.Eta()
-		else:
-			pdg1 = pdgid[i]
-			pdg2 = pdgid[i]
-			partpdg = pdgid[i]
-			partpx = px[i]
-			partpy = py[i]
-			partpz = pz[i]
-			partmass = mass[i]
-			partE = CalcE(partpx, partpy, partpz, partmass)
-			partCharge = charge[i]
-			lv = ROOT.TLorentzVector()
-			lv.SetPxPyPzE(partpx, partpy, partpz, partE)
-			partpT = lv.Pt()
-			partphi = lv.Phi()
-			parteta = lv.Eta()
+
+		pdg1 = pdgid[i][p1]
+		pdg2 = pdgid[i][p2]
+		partpdg = pdgid[i][p1]
+		partpx = px[i][p1]
+		partpy = py[i][p1]
+		partpz = pz[i][p1]
+		partmass = mass[i][p1]
+		partE = CalcE(partpx, partpy, partpz, partmass)
+		partCharge = charge[i][p1]
+		lv = ROOT.TLorentzVector()
+		lv.SetPxPyPzE(partpx, partpy, partpz, partE)
+		partpT = lv.Pt()
+		partphi = lv.Phi()
+		parteta = lv.Eta()
+
 		if (pdg1 == 11 and pdg2 == -11) or (pdg2 == -11 and pdg2 == 11):
 			skimgenfile = open(targetpath + '/skimgen_ee' + filename + '.txt', 'a')
 		elif (pdg1 == 11 and pdg2 == -13) or (pdg1 == -13 and pdg2 == 11):
