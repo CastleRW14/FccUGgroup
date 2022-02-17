@@ -84,7 +84,7 @@ for i in range(len(px)):
 	for v in pairs:
 		p1 = survindex[v[0]]
 		p2 = survindex[v[1]]
-		if len(px[i]) > 1:
+		if type(px[i]) != type(pairs):
 			pdg1 = pdgid[i][p1]
 			pdg2 = pdgid[i][p2]
 			partpdg = pdgid[i][p1]
