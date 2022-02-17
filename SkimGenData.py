@@ -105,7 +105,8 @@ for i in range(len(px)):
 		elif (pdg1 == -13 and pdg2 == 13):
 			skimgenfile = open(targetpath + '/skimgen_mumu' + filename + '.txt', 'a')
 		else:
-			skimgenfile = open(targetpath + '/skimgen_misc' + filename + '.txt', 'a')
+			continue
+			#skimgenfile = open(targetpath + '/skimgen_misc' + filename + '.txt', 'a')
 
 		skimgenfile.write(
 			str(i) + ',' + str(partpdg) + ',' + str(partpx) + ',' + str(partpy) + ',' + str(partpz) + ',' + str(
