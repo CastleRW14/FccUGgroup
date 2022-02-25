@@ -47,9 +47,9 @@ skimgenfile.close()
 skimgenfile = open(targetpath + '/skimgen_e-mu' + filename + '.txt', 'w')
 skimgenfile.write('EventIndex,pdgId,px,py,pz,mass,charge,E,pT,phi,eta\n')
 skimgenfile.close()
-skimgenfile = open(targetpath + '/skimgen_misc' + filename + '.txt', 'w')
-skimgenfile.write('EventIndex,pdgId,px,py,pz,mass,charge,E,pT,phi,eta\n')
-skimgenfile.close()
+#skimgenfile = open(targetpath + '/skimgen_misc' + filename + '.txt', 'w')
+#skimgenfile.write('EventIndex,pdgId,px,py,pz,mass,charge,E,pT,phi,eta\n')
+#skimgenfile.close()
 for i in range(len(px)):
 	survindex = []
 	survpdg = []
