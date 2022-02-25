@@ -1,7 +1,7 @@
 #Based off of Amandeep's code
 
 i     = 0
-f     = open('filelist', 'r')
+f     = open('filelist.txt', 'r')
 lines = f.readlines()
 
 
