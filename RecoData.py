@@ -249,3 +249,7 @@ print('m')
 print(totalm)
 print(maftercuts)
 print(maftercuts/totalm)
+
+f2 = file.open(targetpath + 'survivecount.txt', 'a')
+f2.write(str(totale)+','+str(eaftercuts)+','+str(totalm)+','+str(maftercuts))
+f2.close()
