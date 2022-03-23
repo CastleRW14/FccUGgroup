@@ -137,5 +137,5 @@ for i in range(len(px)):
 		skimgenfile.close()
 
 f2 = open(targetpath + '/survivecount.txt', 'a')
-f2.write(str(totale)+','+str(eaftercuts)+','+str(totalm)+','+str(maftercuts)+'\n')
+f2.write(str(total)+','+str(survived)'\n')
 f2.close()
