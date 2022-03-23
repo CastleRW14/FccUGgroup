@@ -50,11 +50,16 @@ skimgenfile.close()
 #skimgenfile = open(targetpath + '/skimgen_misc' + filename + '.txt', 'w')
 #skimgenfile.write('EventIndex,pdgId,px,py,pz,mass,charge,E,pT,phi,eta\n')
 #skimgenfile.close()
+
+total = 0
+survived = 0
+
 for i in range(len(px)):
 	survindex = []
 	survpdg = []
 	survcharge = []
 	for v in range(len(px[i])):
+		total += 1
 		partpdg = pdgid[i][v]
 		if np.abs(partpdg) == 11 or np.abs(partpdg) == 13:
 			partpx = px[i][v]
@@ -69,6 +74,7 @@ for i in range(len(px)):
 			partphi = lv.Phi()
 			parteta = lv.Eta()
 			if partpT > 20 and np.abs(parteta) < 2.4:
+				survived += 1
 				survindex.append(v)
 				survpdg.append(partpdg)
 				survcharge.append(partCharge)
@@ -129,7 +135,7 @@ for i in range(len(px)):
 				partmass) + ',' + str(partCharge) + ',' + str(
 				partE) + ',' + str(partpT) + ',' + str(partphi) + ',' + str(parteta) + '\n')
 		skimgenfile.close()
-		
 
-
-print('done')
+f2 = open(targetpath + '/survivecount.txt', 'a')
+f2.write(str(totale)+','+str(eaftercuts)+','+str(totalm)+','+str(maftercuts)+'\n')
+f2.close()
