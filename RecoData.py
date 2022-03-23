@@ -27,7 +27,7 @@ rootfile = uproot.open(filepath + '/' + filename)
 events = rootfile['events']
 
 electrons = events['electrons']
-electronspdgid = electrons['electrons.core.pdgId']
+electronspdgid = electrons['electrons.core.pdgId'].array()
 electronspx = electrons['electrons.core.p4.px'].array()
 electronspy = electrons['electrons.core.p4.py'].array()
 electronspz = electrons['electrons.core.p4.pz'].array()
@@ -35,7 +35,7 @@ electronsmass = electrons['electrons.core.p4.mass'].array()
 electronscharge = electrons['electrons.core.charge'].array()
 
 muons = events['muons']
-muonspdgid = muons['muons.core.pdgId']
+muonspdgid = muons['muons.core.pdgId'].array()
 muonspx = muons['muons.core.p4.px'].array()
 muonspy = muons['muons.core.p4.py'].array()
 muonspz = muons['muons.core.p4.pz'].array()
