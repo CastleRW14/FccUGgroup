@@ -251,5 +251,5 @@ print(maftercuts)
 print(maftercuts/totalm)
 
 f2 = open(targetpath + '/survivecount.txt', 'a')
-f2.write(str(totale)+','+str(eaftercuts)+','+str(totalm)+','+str(maftercuts))
+f2.write(str(totale)+','+str(eaftercuts)+','+str(totalm)+','+str(maftercuts)+'\n')
 f2.close()
