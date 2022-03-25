@@ -136,6 +136,6 @@ for i in range(len(px)):
 				partE) + ',' + str(partpT) + ',' + str(partphi) + ',' + str(parteta) + '\n')
 		skimgenfile.close()
 
-f2 = open(targetpath + '/survivecount.txt', 'a')
-f2.write(str(total)+','+str(survived)'\n')
-f2.close()
+survivefile = open(targetpath + '/survive_' + filename + '.txt', 'w')
+survivefile.write('total,survived\n'+str(survived)+','+str(total)+'\n')
+survivefile.close()
