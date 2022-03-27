@@ -11,7 +11,11 @@ filelist = open(filepath + '/tempfilelist.txt','r')
 for i in filelist:
 	i = i.replace('\n','')
     subprocess.call('sbatch ' + i, shell=True)
-    
     # rm Processed*.sh
     # rm slurm*.txt
     # ls -l | wc -l
+
+filelist.close()
+
+os.system('rm ' + filepath + '/tempfilelist.txt')
+
