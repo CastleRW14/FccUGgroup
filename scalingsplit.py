@@ -5,7 +5,7 @@ f     = open('filelist.txt', 'r')
 lines = f.readlines()
 
 #r = range(0,7306)
-r = range(0,2000)
+r = range(2000,4000)
 
 for line in lines :
     line = line.strip('\n')

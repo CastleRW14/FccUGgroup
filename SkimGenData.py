@@ -53,6 +53,7 @@ skimgenfile.close()
 
 total = 0
 survived = 0
+ptsur = 0
 
 for i in range(len(px)):
 	survindex = []
@@ -73,11 +74,13 @@ for i in range(len(px)):
 			partpT = lv.Pt()
 			partphi = lv.Phi()
 			parteta = lv.Eta()
-			if partpT > 20 and np.abs(parteta) < 2.4:
-				survived += 1
-				survindex.append(v)
-				survpdg.append(partpdg)
-				survcharge.append(partCharge)
+			if partpT > 20:
+				ptsur += 1
+				if np.abs(parteta) < 2.4:
+					survived += 1
+					survindex.append(v)
+					survpdg.append(partpdg)
+					survcharge.append(partCharge)
 		'''skimgenfile.write(str(i) + ',' + str(partpdg) + ',' + str(partpx) + ',' + str(partpy) + ',' + str(partpz) + ',' + str(partmass) + ',' + str(
 			partE) + ',' + str(partpT) + ',' + str(partphi) + ',' + str(parteta) + '\n')
 		print(i)
@@ -137,5 +140,5 @@ for i in range(len(px)):
 		skimgenfile.close()
 
 survivefile = open(targetpath + '/survive_' + filename + '.txt', 'w')
-survivefile.write('total,survived\n'+str(survived)+','+str(total)+'\n')
+survivefile.write('ptcutsurvived,etaafterptcutsurvived,total\n'','+str(ptsur)+','+str(survived)+','+str(total)+'\n')
 survivefile.close()

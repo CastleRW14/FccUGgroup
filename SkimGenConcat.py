@@ -23,6 +23,9 @@ if os.path.exists(targetpath + '/skimgen_ee_data.txt'):
 
 skimgen = pd.concat(files)
 
+if os.path.exists(targetpath + '/skimgen_ee_data.txt'):
+	skimgen = pd.concat([skimgen, pd.read_csv(targetpath + '/skimgen_ee_data.txt')])
+
 skimgen.to_csv(targetpath + '/skimgen_ee_data.txt', index=False)
 
 for i in filelist:
@@ -45,6 +48,9 @@ if os.path.exists(targetpath + '/skimgen_e-mu_data.txt'):
 	files.append(pd.read_csv(targetpath + '/skimgen_e-mu_data.txt'))
 
 skimgen = pd.concat(files)
+
+if os.path.exists(targetpath + '/skimgen_e-mu_data.txt'):
+	skimgen = pd.concat([skimgen, pd.read_csv(targetpath + '/skimgen_e-mu_data.txt')])
 
 skimgen.to_csv(targetpath + '/skimgen_e-mu_data.txt', index=False)
 
@@ -69,6 +75,9 @@ if os.path.exists(targetpath + '/skimgen_e+mu_data.txt'):
 
 skimgen = pd.concat(files)
 
+if os.path.exists(targetpath + '/skimgen_e+mu_data.txt'):
+	skimgen = pd.concat([skimgen, pd.read_csv(targetpath + '/skimgen_e+mu_data.txt')])
+
 skimgen.to_csv(targetpath + '/skimgen_e+mu_data.txt', index=False)
 
 for i in filelist:
@@ -92,6 +101,9 @@ if os.path.exists(targetpath + '/skimgen_mumu_data.txt'):
 
 skimgen = pd.concat(files)
 
+if os.path.exists(targetpath + '/skimgen_mumu_data.txt'):
+	skimgen = pd.concat([skimgen, pd.read_csv(targetpath + '/skimgen_mumu_data.txt')])
+
 skimgen.to_csv(targetpath + '/skimgen_mumu_data.txt', index=False)
 
 for i in filelist:
@@ -114,6 +126,9 @@ if os.path.exists(targetpath + '/survived_skimgen.txt'):
 	files.append(pd.read_csv(targetpath + '/survived_skimgen.txt'))
 
 skimgen = pd.concat(files)
+
+if os.path.exists(targetpath + '/survived_skimgen.txt'):
+	skimgen = pd.concat([skimgen, pd.read_csv(targetpath + '/survived_skimgen.txt')])
 
 skimgen.to_csv(targetpath + '/survived_skimgen.txt', index=False)
 
