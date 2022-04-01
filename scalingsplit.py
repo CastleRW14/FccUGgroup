@@ -5,7 +5,7 @@ f     = open('filelist.txt', 'r')
 lines = f.readlines()
 
 #r = range(0,7306)
-r = range(2000,4000)
+r = range(0,2000)
 
 for line in lines :
     line = line.strip('\n')
@@ -27,6 +27,6 @@ for line in lines :
         cfg.write("\n")
         cfg.write("source activate mycmsenv")
         cfg.write("\n")
-        cfg.write("python SkimGenData.py " + str(line) + " /home/miacobuc/FCCAn/Data/")
+        cfg.write("python RecoData.py " + str(line) + " /home/miacobuc/FCCAn/Data/")
         cfg.write("\n")
     i += 1
