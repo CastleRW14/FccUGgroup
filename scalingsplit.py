@@ -3,11 +3,13 @@ import sys
 
 filepath = sys.argv[1]
 
-os.system('ls ' + filepath + '/events*.root.txt>' + 'filelist.txt')
+os.system('ls ' + filepath + 'events*.root>' + 'filelist.txt')
 
 f     = open('filelist.txt', 'r')
 
 lines = f.readlines()
+
+i = 0
 
 for line in lines :
     line = line.replace('\n','')
@@ -31,3 +33,4 @@ for line in lines :
         cfg.write("\n")
         cfg.write("python RecoData.py " + str(line) + " /home/miacobuc/FCCAn/Data/")
         cfg.write("\n")
+    i += 1
