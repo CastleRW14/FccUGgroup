@@ -107,10 +107,10 @@ for i in range(len(electronspx)):
 		if partpT > 20:
 			mptcuts += 1
 			if np.abs(parteta) < 2.4:
-			maftercuts += 1
-			survmindex.append(v)
-			survmpdg.append(partpdg)
-			survmcharge.append(partCharge)
+				maftercuts += 1
+				survmindex.append(v)
+				survmpdg.append(partpdg)
+				survmcharge.append(partCharge)
 		pairs = ViablePairs(survecharge, survecharge)
 		for v in pairs:
 			p1 = surveindex[v[0]]
