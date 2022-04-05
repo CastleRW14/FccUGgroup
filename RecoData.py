@@ -56,8 +56,10 @@ recofile.write('EventIndex,pdgId,px,py,pz,mass,charge,E,pT,phi,eta\n')
 recofile.close()
 
 totale = 0
+eptcuts = 0
 eaftercuts = 0
 totalm = 0
+mptcuts = 0
 maftercuts = 0
 
 for i in range(len(electronspx)):
@@ -78,11 +80,13 @@ for i in range(len(electronspx)):
 		partpT = lv.Pt()
 		partphi = lv.Phi()
 		parteta = lv.Eta()
-		if partpT > 20 and np.abs(parteta) < 2.4:
-			eaftercuts += 1
-			surveindex.append(v)
-			survepdg.append(partpdg)
-			survecharge.append(partCharge)
+		if partpT > 20:
+			eptcuts += 1
+			if np.abs(parteta) < 2.4:
+				eaftercuts += 1
+				surveindex.append(v)
+				survepdg.append(partpdg)
+				survecharge.append(partCharge)
 	survmindex = []
 	survmpdg = []
 	survmcharge = []
@@ -100,7 +104,9 @@ for i in range(len(electronspx)):
 		partpT = lv.Pt()
 		partphi = lv.Phi()
 		parteta = lv.Eta()
-		if partpT > 20 and np.abs(parteta) < 2.4:
+		if partpT > 20:
+			mptcuts += 1
+			if np.abs(parteta) < 2.4:
 			maftercuts += 1
 			survmindex.append(v)
 			survmpdg.append(partpdg)
@@ -240,16 +246,6 @@ for i in range(len(electronspx)):
 					partE) + ',' + str(partpT) + ',' + str(partphi) + ',' + str(parteta) + '\n')
 			recofile.close()
 
-print('e')
-print(totale)
-print(eaftercuts)
-print(eaftercuts/totale)
-
-print('m')
-print(totalm)
-print(maftercuts)
-print(maftercuts/totalm)
-
-f2 = open(targetpath + '/survivecount.txt', 'a')
-f2.write(str(totale)+','+str(eaftercuts)+','+str(totalm)+','+str(maftercuts)+'\n')
-f2.close()
+survivefile = open(targetpath + '/survive_' + filename + '.txt', 'w')
+survivefile.write('ptcutsurvived,etaafterptcutsurvived,total\n'+str(eptcuts + mptcuts)+','+str(eaftercuts + maftercuts)+','+str(totalm + totale)+'\n')
+survivefile.close()
