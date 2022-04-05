@@ -10,7 +10,7 @@ f     = open('filelist.txt', 'r')
 lines = f.readlines()
 
 for line in lines :
-    line = line.strip('\n')
+    line = line.replace('\n','')
     sh_file = 'Process_data_' + str(i) + '.sh'
     with open(sh_file, 'w') as cfg : #Loops the commands to run the file
         cfg.write("#!/bin/bash")
