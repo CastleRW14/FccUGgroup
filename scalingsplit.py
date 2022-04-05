@@ -1,11 +1,13 @@
-#Based off of Amandeep's code
+import os
+import sys
 
-i     = 0
+filepath = sys.argv[1]
+
+os.system('ls ' + filepath + '/events*.root.txt>' + 'filelist.txt')
+
 f     = open('filelist.txt', 'r')
-lines = f.readlines()
 
-#r = range(0,7306)
-r = range(0,2000)
+lines = f.readlines()
 
 for line in lines :
     line = line.strip('\n')
@@ -29,4 +31,3 @@ for line in lines :
         cfg.write("\n")
         cfg.write("python RecoData.py " + str(line) + " /home/miacobuc/FCCAn/Data/")
         cfg.write("\n")
-    i += 1
