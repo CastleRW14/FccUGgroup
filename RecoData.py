@@ -246,6 +246,6 @@ for i in range(len(electronspx)):
 					partE) + ',' + str(partpT) + ',' + str(partphi) + ',' + str(parteta) + '\n')
 			recofile.close()
 
-survivefile = open(targetpath + '/survive_' + filename + '.txt', 'w')
-survivefile.write('ptcutsurvived,etaafterptcutsurvived,total\n'+str(eptcuts + mptcuts)+','+str(eaftercuts + maftercuts)+','+str(totalm + totale)+'\n')
-survivefile.close()
+#survivefile = open(targetpath + '/survive_' + filename + '.txt', 'w')
+#survivefile.write('ptcutsurvived,etaafterptcutsurvived,total\n'+str(eptcuts + mptcuts)+','+str(eaftercuts + maftercuts)+','+str(totalm + totale)+'\n')
+#survivefile.close()
