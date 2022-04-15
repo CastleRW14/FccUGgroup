@@ -27,6 +27,11 @@ def FindHighestPair(partis, partpts, partpdgs):
             pdg2 = partpdgs[i]
     return [ind1, ind2]
 
+[filepath, filename] = os.path.split(sys.argv[1])
+if(len(sys.argv)>2):
+	targetpath = os.path.split(sys.argv[2])[0]
+else:
+	targetpath = filepath
 
 rootfile = uproot.open(filepath + '/' + filename)
 
