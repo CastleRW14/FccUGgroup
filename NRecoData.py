@@ -101,6 +101,7 @@ for i in range(len(epx)):
         p1pdg = epdgid[i][pair[0][1]]
     elif pair[0][0] == 13:
         p1pdg = mpdgid[i][pair[0][1]]
+    print(pair)
     if pair[1][0] == 11:
         p2pdg = epdgid[i][pair[1][1]]
     elif pair[1][0] == 13:
