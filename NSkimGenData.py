@@ -112,4 +112,5 @@ for i in range(len(px)):
             str(i) + ',' + str(p1pdg) + ',' + str(p1x) + ',' + str(p1y) + ',' + str(p1z) + ',' + str(
                 p1m) + ',' + str(p1q) + ',' + str(
                 p1E) + ',' + str(p1pt) + ',' + str(p1phi) + ',' + str(p1eta) + '\n')
+    skimgenfile.close()
 

@@ -98,10 +98,10 @@ for i in range(len(epx)):
         p1pt = lv.Pt()
         p1eta = lv.Eta()
         if p1pt > 20:
-            #if np.abs(p1eta) < 2.4:
-            pts.append(p1pt)
-            inds.append([13, v])
-            pdgs.append(p1pdg)
+            if np.abs(p1eta) < 2.4:
+                pts.append(p1pt)
+                inds.append([13, v])
+                pdgs.append(p1pdg)
     pair = FindHighestPair(inds, pts, pdgs)
     if (type(pair[0]) == type(1)) or (type(pair[1]) == type(1)):
         continue
@@ -115,13 +115,13 @@ for i in range(len(epx)):
         p2pdg = mpdgid[i][pair[1][1]]
     pppdg = [p1pdg, p2pdg]
     if (pppdg[0] == 11 and pppdg[1] == -11) or (pppdg[1] == 11 and pppdg[0] == -11):
-        skimgenfile = open(targetpath + '/skimgen_ee' + filename + '.txt', 'a')
+        recofile = open(targetpath + '/reco_ee' + filename + '.txt', 'a')
     elif (pppdg[0] == 11 and pppdg[1] == -13) or (pppdg[1] == 11 and pppdg[0] == -13):
-        skimgenfile = open(targetpath + '/skimgen_e-mu' + filename + '.txt', 'a')
+        recofile = open(targetpath + '/reco_e-mu' + filename + '.txt', 'a')
     elif (pppdg[0] == -11 and pppdg[1] == 13) or (pppdg[1] == -11 and pppdg[0] == 13):
-        skimgenfile = open(targetpath + '/skimgen_e+mu' + filename + '.txt', 'a')
+        recofile = open(targetpath + '/reco_e+mu' + filename + '.txt', 'a')
     elif (pppdg[0] == -13 and pppdg[1] == 13) or (pppdg[1] == -13 and pppdg[0] == 13):
-        skimgenfile = open(targetpath + '/skimgen_mumu' + filename + '.txt', 'a')
+        recofile = open(targetpath + '/reco_mumu' + filename + '.txt', 'a')
     else:
         continue
     for v in pair:
@@ -145,7 +145,8 @@ for i in range(len(epx)):
         p1pt = lv.Pt()
         p1phi = lv.Phi()
         p1eta = lv.Eta()
-        skimgenfile.write(
+        recofile.write(
             str(i) + ',' + str(p1pdg) + ',' + str(p1x) + ',' + str(p1y) + ',' + str(p1z) + ',' + str(
                 p1m) + ',' + str(p1q) + ',' + str(
                 p1E) + ',' + str(p1pt) + ',' + str(p1phi) + ',' + str(p1eta) + '\n')
+    recofile.close()
