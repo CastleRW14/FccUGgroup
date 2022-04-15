@@ -76,7 +76,7 @@ for i in range(len(px)):
             p1pt = lv.Pt()
             p1eta = lv.Eta()
             if p1pt > 20:
-                if np.abs(p1pt) < 2.4:
+                if np.abs(p1eta) < 2.4:
                     pts.append(p1pt)
                     inds.append(v)
                     pdgs.append(p1pdg)

@@ -82,9 +82,7 @@ for i in range(len(epx)):
         p1pt = lv.Pt()
         p1eta = lv.Eta()
         if p1pt > 20:
-            print(1)
-            if np.abs(p1pt) < 2.4:
-                print(1)
+            if np.abs(p1eta) < 2.4:
                 pts.append(p1pt)
                 inds.append([11, v])
                 pdgs.append(p1pdg)
@@ -100,9 +98,7 @@ for i in range(len(epx)):
         p1pt = lv.Pt()
         p1eta = lv.Eta()
         if p1pt > 20:
-            print(1)
-            if np.abs(p1pt) < 2.4:
-                print(1)
+            if np.abs(p1eta) < 2.4:
                 pts.append(p1pt)
                 inds.append([13, v])
                 pdgs.append(p1pdg)
