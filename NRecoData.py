@@ -124,7 +124,7 @@ for i in range(len(epx)):
             p1z = epz[i][v[1]]
             p1m = em[i][v[1]]
             p1q = eq[i][v[1]]
-        elif v[0] == 11:
+        elif v[0] == 13:
             p1pdg = mpdgid[i][v[1]]
             p1x = mpx[i][v[1]]
             p1y = mpy[i][v[1]]
