@@ -72,7 +72,7 @@ for i in range(len(px)):
             p1m = mass[i][v]
             p1E = CalcE(p1x, p1y, p1z, p1m)
             lv = ROOT.TLorentzVector()
-            lv.SetPxPyPzE(partpx, partpy, partpz, partE)
+            lv.SetPxPyPzE(p1x, p1y, p1z, p1E)
             p1pt = lv.Pt()
             pts.append(p1pt)
             inds.append(v)
@@ -97,7 +97,7 @@ for i in range(len(px)):
         p1m = mass[i][v]
         p1E = CalcE(p1x, p1y, p1z, p1m)
         lv = ROOT.TLorentzVector()
-        lv.SetPxPyPzE(partpx, partpy, partpz, partE)
+        lv.SetPxPyPzE(p1x, p1y, p1z, p1E)
         p1pt = lv.Pt()
         p1phi = lv.Phi()
         p1eta = lv.Eta()
