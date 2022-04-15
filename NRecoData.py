@@ -87,7 +87,6 @@ for i in range(len(epx)):
                 pts.append(p1pt)
                 inds.append([11, v])
                 pdgs.append(p1pdg)
-    print(0)
     for v in range(len(mpx[i])):
         p1pdg = mpdgid[i][v]
         p1x = mpx[i][v]
