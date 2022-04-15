@@ -21,12 +21,14 @@ def FindHighestPair(partis, partpts, partpdgs):
             ind1 = partis[i]
             pdg1 = partpdgs[i]
     for i in range(len(partpts)):
+        print()
         print(partpts[i])
         print(partis[i])
         print(partpdgs[i])
         print(max1)
         print(ind1)
         print(pdg1)
+        print()
         if (partpts[i] >= max2) & (partis[i] != ind1) & (partpdgs[i] * pdg1 < 0):
             max2 = partpts[i]
             ind2 = partis[i]
