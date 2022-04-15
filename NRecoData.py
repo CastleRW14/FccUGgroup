@@ -97,7 +97,15 @@ for i in range(len(epx)):
         inds.append([13, v])
         pdgs.append(p1pdg)
     pair = FindHighestPair(inds, pts, pdgs)
-    pppdg = [pdgid[i][pair[0]], pdgid[i][pair[1]]]
+    if pair[0][0] == 11:
+        p1pdg = epdgid[pair[0][1]]
+    elif pair[0][0] == 13:
+        p1pdg = mpdgid[pair[0][1]]
+    if pair[1][0] == 11:
+        p2pdg = epdgid[pair[1][1]]
+    elif pair[1][0] == 13:
+        p2pdg = mpdgid[pair[1][1]]
+    pppdg = [p1pdg, p2pdg]
     if (pppdg[0] == 11 and pppdg[1] == -11) or (pppdg[1] == 11 and pppdg[0] == -11):
         skimgenfile = open(targetpath + '/skimgen_ee' + filename + '.txt', 'a')
     elif (pppdg[0] == 11 and pppdg[1] == -13) or (pppdg[1] == 11 and pppdg[0] == -13):
