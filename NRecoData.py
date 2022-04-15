@@ -66,7 +66,7 @@ recofile = open(targetpath + '/reco_e-mu' + filename + '.txt', 'w')
 recofile.write('EventIndex,pdgId,px,py,pz,mass,charge,E,pT,phi,eta\n')
 recofile.close()
 
-for i in range(len(px)):
+for i in range(len(epx)):
     inds = []
     pts = []
     pdgs = []
