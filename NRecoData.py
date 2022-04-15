@@ -21,14 +21,6 @@ def FindHighestPair(partis, partpts, partpdgs):
             ind1 = partis[i]
             pdg1 = partpdgs[i]
     for i in range(len(partpts)):
-        print()
-        print(partpts[i])
-        print(partis[i])
-        print(partpdgs[i])
-        print(max1)
-        print(ind1)
-        print(pdg1)
-        print()
         if (partpts[i] >= max2) & (partis[i] != ind1) & (partpdgs[i] * pdg1 < 0):
             max2 = partpts[i]
             ind2 = partis[i]
@@ -88,9 +80,12 @@ for i in range(len(epx)):
         lv = ROOT.TLorentzVector()
         lv.SetPxPyPzE(p1x, p1y, p1z, p1E)
         p1pt = lv.Pt()
-        pts.append(p1pt)
-        inds.append([11, v])
-        pdgs.append(p1pdg)
+        p1eta = lv.Eta()
+        if p1pt > 20:
+            if np.abs(p1pt) < 2.4:
+                pts.append(p1pt)
+                inds.append([11, v])
+                pdgs.append(p1pdg)
     for v in range(len(mpx[i])):
         p1pdg = mpdgid[i][v]
         p1x = mpx[i][v]
@@ -101,10 +96,15 @@ for i in range(len(epx)):
         lv = ROOT.TLorentzVector()
         lv.SetPxPyPzE(p1x, p1y, p1z, p1E)
         p1pt = lv.Pt()
-        pts.append(p1pt)
-        inds.append([13, v])
-        pdgs.append(p1pdg)
+        p1eta = lv.Eta()
+        if p1pt > 20:
+            if np.abs(p1pt) < 2.4:
+                pts.append(p1pt)
+                inds.append([13, v])
+                pdgs.append(p1pdg)
     pair = FindHighestPair(inds, pts, pdgs)
+    if (type(pair[0]) == type(1)) or (type(pair[1]) == type(1)):
+        continue
     if pair[0][0] == 11:
         p1pdg = epdgid[i][pair[0][1]]
     elif pair[0][0] == 13:

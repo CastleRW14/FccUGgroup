@@ -74,10 +74,15 @@ for i in range(len(px)):
             lv = ROOT.TLorentzVector()
             lv.SetPxPyPzE(p1x, p1y, p1z, p1E)
             p1pt = lv.Pt()
-            pts.append(p1pt)
-            inds.append(v)
-            pdgs.append(p1pdg)
+            p1eta = lv.Eta()
+            if p1pt > 20:
+                if np.abs(p1pt) < 2.4:
+                    pts.append(p1pt)
+                    inds.append(v)
+                    pdgs.append(p1pdg)
     pair = FindHighestPair(inds, pts, pdgs)
+    if (type(pair[0]) == type(1)) or (type(pair[1]) == type(1)):
+        continue
     pppdg = [pdgid[i][pair[0]], pdgid[i][pair[1]]]
     if (pppdg[0] == 11 and pppdg[1] == -11) or (pppdg[1] == 11 and pppdg[0] == -11):
         skimgenfile = open(targetpath + '/skimgen_ee' + filename + '.txt', 'a')
