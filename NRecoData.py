@@ -98,10 +98,10 @@ for i in range(len(epx)):
         p1pt = lv.Pt()
         p1eta = lv.Eta()
         if p1pt > 20:
-            if np.abs(p1eta) < 2.4:
-                pts.append(p1pt)
-                inds.append([13, v])
-                pdgs.append(p1pdg)
+            #if np.abs(p1eta) < 2.4:
+            pts.append(p1pt)
+            inds.append([13, v])
+            pdgs.append(p1pdg)
     pair = FindHighestPair(inds, pts, pdgs)
     if (type(pair[0]) == type(1)) or (type(pair[1]) == type(1)):
         continue
